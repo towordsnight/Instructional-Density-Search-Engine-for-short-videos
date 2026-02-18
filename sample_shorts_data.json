@@ -1,0 +1,20 @@
+[
+  {
+    "id": "yt_001",
+    "platform": "youtube",
+    "title": "5 Minute Ab Workout",
+    "transcript": "Hey everyone welcome back. Today we're doing a quick five minute ab workout. Let's start with planks..."
+  },
+  {
+    "id": "tt_001",
+    "platform": "tiktok",
+    "title": "POV: Cooking at 2am",
+    "transcript": "It's 2am and you're hungry. So you decide to make instant noodles with an egg. The perfect midnight snack..."
+  },
+  {
+    "id": "ig_001",
+    "platform": "instagram",
+    "title": "Sunset at the beach",
+    "transcript": "Golden hour hits different. Nothing beats watching the sun go down over the ocean. Pure peace."
+  }
+]
