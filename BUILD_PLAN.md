@@ -1,8 +1,8 @@
 # Short Compilation — Complete Build Plan
 
-**Project:** Cross-platform search engine for short-form videos ranked by instructional density
-**Course:** INFO 376, University of Washington
-**Team:** Haohang Li, Matthew Miller-Martinez, Nathaniel Wiroatmodjo, William Tse Yuen
+**Project:** Cross-platform search engine for short-form videos ranked by instructional density  
+**Course:** INFO 376, University of Washington  
+**Team:** Haohang Li, Matthew Miller-Martinez, Nathaniel Wiroatmodjo, William Tse Yuen 
 
 ---
 
@@ -70,7 +70,7 @@
 | `youtube_api.py` | 6 | Query list validation (count, non-empty, diverse topics); `search_shorts()` correct structure, empty response, correct API params; `get_video_details()` structure, missing statistics fallback, batching >50 IDs |
 | `transcript_fetcher.py` | 6 | `fetch_youtube_transcript()` returns joined text, handles exceptions, empty transcripts, whitespace stripping; `transcribe_with_whisper()` returns text, graceful failure when Whisper not installed |
 | `tiktok_instagram_collector.py` | 13 | `_generate_id()` prefix correctness (ti_/in_), determinism, uniqueness; `load_manual_urls()` CSV loading, JSON loading, empty row skipping, actual template file; `process_manual_urls()` success path, failed downloads, failed transcription, empty file |
-| `build_dataset.py` | 15 | `deduplicate()` removes dupes, passthrough, empty input, all-same-ID; `collect_youtube()` full pipeline, skips missing transcripts, dedup across queries; `collect_manual()` missing file, delegation; CLI requires API key; end-to-end data format validation (required fields check), JSON round-trip |
+| `build_dataset.py` | 15 | - `deduplicate()` removes dupes, passthrough, empty input, all-same-ID; - `collect_youtube()` full pipeline, skips missing transcripts, dedup across queries; - `collect_manual()` missing file, delegation; - CLI requires API key; - end-to-end data format validation (required fields check), JSON round-trip |
 
 #### Bug found and fixed during testing
 
