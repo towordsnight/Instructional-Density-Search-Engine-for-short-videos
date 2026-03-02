@@ -115,17 +115,34 @@
 
 ### Task 3.1 — Improve Instructional Density Scorer
 - **File:** `instructional_score.py` (existing)
-- **Status:** [ ] Not started
-- Add weighted categories (how-to cues worth more than generic action verbs)
-- Add negative signals (entertainment markers: "OMG", "bestie", "haul", etc.) to penalize non-instructional content
-- Normalize by transcript length to avoid bias toward longer videos
+- **Status:** [x] Done — 30/30 tests passing
+- Weighted signal categories: `how_to_cues` (3.0), `educational_concepts` (2.0), `domain_knowledge` (2.0), `historical_context` (1.5), `sequential_markers` (1.5), `action_verbs` (1.0)
+- Entertainment signals: 20 patterns (`omg`, `bestie`, `haul`, `unboxing`, etc.) with 2.0 penalty per match
+- Length normalization: density = (net / word_count) × 100, capped at 20.0, sqrt curve
+- Backward-compatible: flat `INSTRUCTIONAL_SIGNALS` dict and API preserved
 
 ### Task 3.2 — Improve Search Pipeline
 - **File:** `search.py` (existing)
-- **Status:** [ ] Not started
-- Add query expansion (synonyms / related terms)
-- Add result deduplication (near-duplicate transcripts)
-- Return video URLs/links in results for the UI
+- **Status:** [x] Done — 30/30 tests passing
+- Query expansion: `_SYNONYMS` dict (12 entries), `_expand_query_terms()`, `expand` param on `_extract_query_terms()`
+- Result deduplication: `_deduplicate_results()` with cosine similarity threshold, `dedup_threshold=0.95` param on `search()`
+- Video URL construction: `_construct_video_url()` for YouTube/TikTok/Instagram, every result dict has `url` key
+
+### Task 3.3 — Phase 3 Test Suite
+- **File:** `test_phase3.py`
+- **Status:** [x] Done — 30/30 tests passing
+- **Run:** `.venv/bin/python -m pytest test_phase3.py -v`
+
+| Test Class | # Tests | Covers |
+|---|---|---|
+| `TestWeightedCategories` | 5 | How-to > action verbs, category structure, all 62 patterns preserved, backward-compat flat dict, tutorial scores higher |
+| `TestEntertainmentSignals` | 5 | Patterns match, reduces score, pure entertainment → 0.0, mixed content, no negative scores |
+| `TestLengthNormalization` | 4 | Short text scores, diluted text lower, empty/whitespace → 0.0, same density = similar scores |
+| `TestScorerBackwardCompat` | 3 | API signature, batch API, score range [0.0, 1.0] |
+| `TestQueryExpansion` | 4 | Known term expands, unknown passes through, expand flag works, boost with synonyms |
+| `TestDeduplication` | 4 | Identical removed, different preserved, threshold boundary, disabled at 1.0 |
+| `TestVideoUrls` | 3 | URL from metadata, URL constructed for youtube, empty when unknown |
+| `TestRankingPreservation` | 2 | Instructional ranks 1-3 / vlogs 4-5, vlog density ≤ 0.3 |
 
 ---
 
@@ -249,3 +266,4 @@ scikit-learn>=1.0.0
 | 2026-02-28 | Phase 1: Data Collection | Implemented full data collection module — `youtube_api.py`, `transcript_fetcher.py`, `tiktok_instagram_collector.py`, `build_dataset.py`. Updated `requirements.txt` with 4 new dependencies. Ready to run with a YouTube API key. |
 | 2026-03-01 | Phase 1: Testing & Validation | Installed all Phase 1 dependencies (`google-api-python-client`, `youtube-transcript-api`, `yt-dlp`, `pytest`). Verified all module imports work. Wrote 40 unit tests in `data_collection/test_phase1.py` covering all 4 modules with mocked external APIs. Found 1 test bug (case-sensitivity in topic check — `"DIY"` vs `"diy"` after `.lower()`), fixed it. All 40 tests pass. All 4 source modules were correct on first run — no source code bugs found. Phase 1 is fully verified and complete. |
 | 2026-03-01 | Phase 2: Text Processing | Implemented 9-step transcript cleaning pipeline in `text_processing/clean_transcript.py` (stdlib only). Steps: unicode normalization, caption artifact removal, timestamp/URL/mention removal, filler word removal, repeated word collapse, whitespace normalization, sentence segmentation. Integrated into `build_dataset.py`. Wrote 39 tests in `text_processing/test_phase2.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5). Phase 1 tests still pass (40/40). |
+| 2026-03-01 | Phase 3: Enhance Modules | Enhanced `instructional_score.py`: weighted signal categories (6 categories, weights 1.0–3.0), 20 entertainment penalty patterns (2.0 per match), length-normalized density scoring. Enhanced `search.py`: query expansion with 12-entry synonym dict, cosine-similarity deduplication (threshold 0.95), video URL construction for YouTube/TikTok/Instagram. Wrote 30 tests in `test_phase3.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5 with density 0.0 due to entertainment penalties). All prior tests still pass (Phase 2: 39/39, Phase 1: 40/40). No new dependencies added. |
