@@ -18,7 +18,7 @@
 | Data collection tests | **Done (40/40 pass)** | `data_collection/test_phase1.py` — mocked unit tests for all 4 modules |
 | Text processing | **Done + Tested** | `text_processing/` — 9-step cleaning pipeline, 39/39 tests passing |
 | Real dataset | **Ready to generate** | Run `build_dataset.py` with API key to produce 50-100+ videos |
-| Web UI | **Missing** | No frontend at all |
+| Web UI | **Done + Tested** | `app.py` + `templates/index.html` — Flask backend + single-page frontend, 15/15 tests |
 | Evaluation framework | **Missing** | No systematic metrics (precision, recall, nDCG) |
 
 ---
@@ -149,19 +149,36 @@
 ## Phase 4: Web UI
 
 ### Task 4.1 — Backend API
-- **File:** `app.py` (Flask or FastAPI)
-- **Status:** [ ] Not started
-- `GET /api/search?q=...&k=10` — returns ranked JSON results
-- `GET /api/stats` — dataset stats (video count, avg density, etc.)
-- Load model + embeddings + metadata on startup
+- **File:** `app.py` (Flask)
+- **Status:** [x] Done — 15/15 tests passing
+- `GET /` — serves `templates/index.html`
+- `GET /api/search?q=...&k=10` — returns ranked JSON results via `search.search()`
+- `GET /api/stats` — dataset stats (total_videos, avg_density, platforms breakdown)
+- Load model + embeddings + metadata on startup via `_load_data()`
+- Error handling: missing/empty `q` → 400 with JSON error
 
 ### Task 4.2 — Frontend
-- **File:** `templates/index.html` (or `frontend/`)
-- **Status:** [ ] Not started
-- Search bar with query input
-- Results list showing: rank, title, platform, density score, similarity score, video link/embed
-- Click-through to the original video on YouTube/TikTok/Instagram
-- Simple, clean design (single-page HTML+JS or React)
+- **File:** `templates/index.html`
+- **Status:** [x] Done
+- Single-page HTML+CSS+JS, no external frameworks or build step
+- Search bar with query input (submits on Enter or click)
+- Stats summary fetched from `/api/stats` on page load
+- Result cards: rank, title, platform badge (color-coded), density bar, similarity score, clickable video link
+- Loading spinner, empty-state message
+- Clean CSS with variables, responsive layout
+
+### Task 4.3 — Phase 4 Test Suite
+- **File:** `test_phase4.py`
+- **Status:** [x] Done — 15/15 tests passing
+- **Run:** `.venv/bin/python -m pytest test_phase4.py -v`
+
+| Test Class | # Tests | Covers |
+|---|---|---|
+| `TestSearchEndpoint` | 5 | Returns JSON, requires query, respects top_k, result has expected keys, results ordered by score |
+| `TestStatsEndpoint` | 3 | Returns JSON, has required fields, correct video count |
+| `TestIndexRoute` | 2 | Returns 200, contains search form |
+| `TestAppStartup` | 3 | Globals populated, metadata length matches embeddings, model callable |
+| `TestErrorHandling` | 2 | Missing query → 400, empty query → 400 |
 
 ---
 
@@ -267,3 +284,4 @@ scikit-learn>=1.0.0
 | 2026-03-01 | Phase 1: Testing & Validation | Installed all Phase 1 dependencies (`google-api-python-client`, `youtube-transcript-api`, `yt-dlp`, `pytest`). Verified all module imports work. Wrote 40 unit tests in `data_collection/test_phase1.py` covering all 4 modules with mocked external APIs. Found 1 test bug (case-sensitivity in topic check — `"DIY"` vs `"diy"` after `.lower()`), fixed it. All 40 tests pass. All 4 source modules were correct on first run — no source code bugs found. Phase 1 is fully verified and complete. |
 | 2026-03-01 | Phase 2: Text Processing | Implemented 9-step transcript cleaning pipeline in `text_processing/clean_transcript.py` (stdlib only). Steps: unicode normalization, caption artifact removal, timestamp/URL/mention removal, filler word removal, repeated word collapse, whitespace normalization, sentence segmentation. Integrated into `build_dataset.py`. Wrote 39 tests in `text_processing/test_phase2.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5). Phase 1 tests still pass (40/40). |
 | 2026-03-01 | Phase 3: Enhance Modules | Enhanced `instructional_score.py`: weighted signal categories (6 categories, weights 1.0–3.0), 20 entertainment penalty patterns (2.0 per match), length-normalized density scoring. Enhanced `search.py`: query expansion with 12-entry synonym dict, cosine-similarity deduplication (threshold 0.95), video URL construction for YouTube/TikTok/Instagram. Wrote 30 tests in `test_phase3.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5 with density 0.0 due to entertainment penalties). All prior tests still pass (Phase 2: 39/39, Phase 1: 40/40). No new dependencies added. |
+| 2026-03-01 | Phase 4: Web UI | Implemented Flask web UI. `app.py` (~65 lines): loads model + data on startup, serves `/` (index page), `/api/search` (ranked JSON results), `/api/stats` (dataset statistics). `templates/index.html` (~155 lines): single-page HTML+CSS+JS with search bar, stats summary, color-coded platform badges, density bar visualization, responsive layout. Added `flask>=3.0.0` to `requirements.txt`. Wrote 15 tests in `test_phase4.py` using Flask test client with mocked model/data — all pass. Phase 3 tests still pass (30/30). Total: 124/124 tests across all phases. |

@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""
+Flask web UI for Short Compilation search engine.
+Serves a single-page interface for searching indexed short-form videos.
+"""
+
+import json
+
+import numpy as np
+from flask import Flask, render_template, request, jsonify
+
+from create_embeddings import load_model
+from search import search
+
+app = Flask(__name__)
+
+# Module globals — populated on startup
+model = None
+embeddings = None
+density_scores = None
+metadata = None
+
+
+def _load_data():
+    """Load model and data files into module globals."""
+    global model, embeddings, density_scores, metadata
+    model = load_model()
+    embeddings = np.load("embeddings.npy")
+    density_scores = np.load("density_scores.npy")
+    with open("metadata.json", encoding="utf-8") as f:
+        metadata = json.load(f)
+
+
+@app.route("/")
+def index():
+    """Serve the search page."""
+    return render_template("index.html")
+
+
+@app.route("/api/search")
+def api_search():
+    """Search endpoint: GET /api/search?q=...&k=10"""
+    q = request.args.get("q", "").strip()
+    if not q:
+        return jsonify({"error": "Missing required parameter: q"}), 400
+
+    k = request.args.get("k", 10, type=int)
+    results = search(
+        model, q, embeddings, density_scores, metadata,
+        top_k=k, min_density=0.1,
+    )
+    return jsonify(results)
+
+
+@app.route("/api/stats")
+def api_stats():
+    """Dataset statistics endpoint."""
+    platforms = {}
+    for m in metadata:
+        p = m.get("platform", "unknown")
+        platforms[p] = platforms.get(p, 0) + 1
+
+    return jsonify({
+        "total_videos": len(metadata),
+        "avg_density": float(np.mean(density_scores)),
+        "platforms": platforms,
+    })
+
+
+if __name__ == "__main__":
+    _load_data()
+    app.run(debug=True, port=5000)
