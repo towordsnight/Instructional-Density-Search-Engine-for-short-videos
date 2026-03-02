@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from data_collection.youtube_api import SEARCH_QUERIES, get_video_details, search_shorts
 from data_collection.transcript_fetcher import fetch_youtube_transcript
 from data_collection.tiktok_instagram_collector import process_manual_urls
+from text_processing.clean_transcript import clean_transcript
 
 
 def collect_youtube(api_key: str, queries: list[str], results_per_query: int = 10) -> list[dict]:
@@ -155,6 +156,14 @@ def main():
 
     # Deduplicate
     dataset = deduplicate(dataset)
+
+    # Clean transcripts
+    cleaned_count = 0
+    for item in dataset:
+        if item.get("transcript"):
+            item["transcript"] = clean_transcript(item["transcript"])
+            cleaned_count += 1
+    print(f"\n  Cleaned {cleaned_count} transcripts")
 
     # Save output
     output_path.parent.mkdir(parents=True, exist_ok=True)

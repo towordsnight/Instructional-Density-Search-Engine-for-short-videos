@@ -16,7 +16,7 @@
 | Ranking test | Done | `test_ranking.py` — proves instructional > entertainment |
 | Data collection | **Done + Tested** | `data_collection/` — YouTube API + TikTok/Instagram via yt-dlp + Whisper |
 | Data collection tests | **Done (40/40 pass)** | `data_collection/test_phase1.py` — mocked unit tests for all 4 modules |
-| Text processing | **Missing** | No transcript cleaning pipeline |
+| Text processing | **Done + Tested** | `text_processing/` — 9-step cleaning pipeline, 39/39 tests passing |
 | Real dataset | **Ready to generate** | Run `build_dataset.py` with API key to produce 50-100+ videos |
 | Web UI | **Missing** | No frontend at all |
 | Evaluation framework | **Missing** | No systematic metrics (precision, recall, nDCG) |
@@ -84,11 +84,30 @@
 
 ### Task 2.1 — Transcript Cleaner
 - **File:** `text_processing/clean_transcript.py`
-- **Status:** [ ] Not started
-- Remove filler words, timestamp artifacts, repeated phrases
-- Normalize unicode, fix encoding issues
-- Sentence segmentation for better embedding quality
-- Output cleaned text back into the dataset JSON
+- **Status:** [x] Done — 39/39 tests passing
+- 9-step composable cleaning pipeline: unicode normalization, caption artifact removal, timestamp removal, URL removal, mention/hashtag removal, filler word removal, repeated word collapse, whitespace normalization, sentence segmentation
+- Public API: `clean_transcript(text, steps)`, `clean_dataset(input_path, output_path)`
+- CLI: `python -m text_processing.clean_transcript -i input.json -o output.json`
+- Integrated into `data_collection/build_dataset.py` (cleans after dedup, before save)
+- No new dependencies — stdlib only (`re`, `unicodedata`, `json`, `argparse`)
+
+### Task 2.2 — Phase 2 Test Suite
+- **File:** `text_processing/test_phase2.py`
+- **Status:** [x] Done — 39/39 tests passing
+- **Run:** `.venv/bin/python -m pytest text_processing/test_phase2.py -v`
+- 8 test classes covering all 9 cleaning steps, batch processing, schema preservation, and ranking preservation
+
+| Test Class | # Tests | Covers |
+|---|---|---|
+| `TestCleanTranscript` | 12 | None/empty/whitespace, clean passthrough, preserves keywords, removes tags/fillers/timestamps/URLs/repeats, custom steps, invalid step |
+| `TestUnicodeNormalization` | 4 | NFC, zero-width chars, BOM, non-breaking spaces |
+| `TestCaptionArtifacts` | 4 | All known tags, case-insensitive, preserves non-tag brackets, multiple tags |
+| `TestFillerRemoval` | 4 | Single fillers, preserves "like", multi-word fillers, case-insensitive |
+| `TestRepeatedWords` | 3 | Double/triple collapse, no false positives |
+| `TestSentenceSegmentation` | 3 | Preserves existing punctuation, segments run-on text, multiple markers |
+| `TestCleanDataset` | 5 | Batch processing, schema preservation, null handling, empty dataset, summary stats |
+| `TestRankingPreservation` | 1 | Instructional density still > entertainment after cleaning |
+| `TestPipelineCompleteness` | 3 | Registry consistency, step count |
 
 ---
 
@@ -162,7 +181,9 @@ model/
 │   ├── test_phase1.py          # 40 unit tests for all data collection modules
 │   └── manual_urls.csv         # Template for TikTok/Instagram URLs
 ├── text_processing/
-│   └── clean_transcript.py     # Transcript cleaning
+│   ├── __init__.py             # Package init
+│   ├── clean_transcript.py     # Transcript cleaning (9-step pipeline)
+│   └── test_phase2.py          # 39 unit tests for transcript cleaning
 ├── dataset/
 │   └── shorts_data.json        # Real 50-100+ video dataset
 ├── evaluation/
@@ -227,3 +248,4 @@ scikit-learn>=1.0.0
 |---|---|---|
 | 2026-02-28 | Phase 1: Data Collection | Implemented full data collection module — `youtube_api.py`, `transcript_fetcher.py`, `tiktok_instagram_collector.py`, `build_dataset.py`. Updated `requirements.txt` with 4 new dependencies. Ready to run with a YouTube API key. |
 | 2026-03-01 | Phase 1: Testing & Validation | Installed all Phase 1 dependencies (`google-api-python-client`, `youtube-transcript-api`, `yt-dlp`, `pytest`). Verified all module imports work. Wrote 40 unit tests in `data_collection/test_phase1.py` covering all 4 modules with mocked external APIs. Found 1 test bug (case-sensitivity in topic check — `"DIY"` vs `"diy"` after `.lower()`), fixed it. All 40 tests pass. All 4 source modules were correct on first run — no source code bugs found. Phase 1 is fully verified and complete. |
+| 2026-03-01 | Phase 2: Text Processing | Implemented 9-step transcript cleaning pipeline in `text_processing/clean_transcript.py` (stdlib only). Steps: unicode normalization, caption artifact removal, timestamp/URL/mention removal, filler word removal, repeated word collapse, whitespace normalization, sentence segmentation. Integrated into `build_dataset.py`. Wrote 39 tests in `text_processing/test_phase2.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5). Phase 1 tests still pass (40/40). |
