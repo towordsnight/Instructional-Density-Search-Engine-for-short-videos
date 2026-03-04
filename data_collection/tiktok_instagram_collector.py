@@ -58,6 +58,7 @@ def _download_metadata_and_audio(url: str, audio_dir: str) -> dict | None:
             "uploader": uploader,
             "view_count": view_count or 0,
             "audio_path": audio_path,
+            "thumbnail": info.get("thumbnail", ""),
         }
     except Exception as e:
         print(f"  [WARNING] Failed to process {url}: {e}")
@@ -124,6 +125,7 @@ def process_manual_urls(filepath: str, whisper_model: str = "base") -> list[dict
                 "views": meta["view_count"],
                 "likes": 0,
                 "published_at": "",
+                "thumbnail": meta.get("thumbnail", ""),
             })
 
     return results

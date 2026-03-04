@@ -47,6 +47,8 @@
       background: var(--card-bg); border-radius: var(--radius); padding: 16px 20px;
       margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); display: flex; gap: 16px; align-items: flex-start;
     }
+    .card-thumb { width: 120px; min-width: 120px; height: 90px; border-radius: 8px; object-fit: cover; background: var(--border); }
+    .card-thumb-placeholder { width: 120px; min-width: 120px; height: 90px; border-radius: 8px; background: var(--border); }
     .rank { font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 32px; text-align: center; padding-top: 2px; }
     .card-body { flex: 1; min-width: 0; }
     .card-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 6px; }
@@ -129,8 +131,12 @@
         const densityPct = Math.round(r.density * 100);
         const card = document.createElement("div");
         card.className = "card";
+        const thumbHtml = r.thumbnail
+          ? `<img class="card-thumb" src="${r.thumbnail}" alt="">`
+          : `<div class="card-thumb-placeholder"></div>`;
         card.innerHTML = `
           <div class="rank">#${r.rank}</div>
+          ${thumbHtml}
           <div class="card-body">
             <div class="card-title">
               <span class="badge ${badgeClass(r.platform)}">${r.platform || "?"}</span>

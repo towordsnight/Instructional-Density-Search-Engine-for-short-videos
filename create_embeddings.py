@@ -117,6 +117,11 @@ def main():
 
     meta_cols = [c for c in df.columns if c != "_text"]
     metadata = df[meta_cols].to_dict(orient="records")
+    # Convert any non-serializable types (e.g. pandas Timestamp) to strings
+    for row in metadata:
+        for k, v in row.items():
+            if not isinstance(v, (str, int, float, bool, type(None), list, dict)):
+                row[k] = str(v)
     with open(args.metadata_output, "w", encoding="utf-8") as f:
         json.dump(metadata, f, ensure_ascii=False, indent=2)
     print(f"Saved metadata to {args.metadata_output}")

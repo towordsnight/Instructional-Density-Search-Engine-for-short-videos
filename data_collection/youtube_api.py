@@ -14,6 +14,9 @@ SEARCH_QUERIES = [
     "language learning tips",
     "photography tips",
     "music production tutorial",
+    "Tiffany design meaning",
+    "Tiffany jewelry history",
+    "Tiffany architecture symbolism",
 ]
 
 
@@ -42,6 +45,7 @@ def search_shorts(api_key: str, query: str, max_results: int = 25) -> list[dict]
             "title": snippet["title"],
             "channel": snippet["channelTitle"],
             "published_at": snippet["publishedAt"],
+            "thumbnail": snippet.get("thumbnails", {}).get("high", {}).get("url", ""),
         })
 
     return results
@@ -76,6 +80,7 @@ def get_video_details(api_key: str, video_ids: list[str]) -> list[dict]:
                 "views": int(stats.get("viewCount", 0)),
                 "likes": int(stats.get("likeCount", 0)),
                 "url": f"https://www.youtube.com/shorts/{item['id']}",
+                "thumbnail": snippet.get("thumbnails", {}).get("high", {}).get("url", ""),
             })
 
     return all_details

@@ -62,6 +62,7 @@ def collect_youtube(api_key: str, queries: list[str], results_per_query: int = 1
             "views": detail["views"],
             "likes": detail["likes"],
             "published_at": detail["published_at"],
+            "thumbnail": detail.get("thumbnail", ""),
         })
 
         # Brief delay every 5 requests to avoid rate limiting
