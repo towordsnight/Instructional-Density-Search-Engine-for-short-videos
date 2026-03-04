@@ -241,14 +241,15 @@ model/
 
 ## Priority Order
 
-| Priority | Task | Reason |
+| Priority | Task | Status |
 |---|---|---|
-| 1 | Data collection (YouTube API + transcripts) | Everything depends on having real data |
-| 2 | Text processing (clean transcripts) | Embedding quality depends on clean input |
-| 3 | Re-run indexing on real dataset | Generate real embeddings + density scores |
-| 4 | Web UI (Flask app + HTML) | The proposal requires a searchable interface |
-| 5 | Evaluation framework | Week 8 milestone — need metrics for the report |
-| 6 | Enhancements to scoring/search | Polish after core pipeline works end-to-end |
+| 1 | Data collection (YouTube API + transcripts) | Done — 34 videos collected |
+| 2 | Text processing (clean transcripts) | Done — 9-step pipeline |
+| 3 | Re-run indexing on real dataset | Done — embeddings rebuilt |
+| 4 | Web UI (Flask app + HTML) | Done — with thumbnails |
+| 5 | Grow dataset to 100+ videos | Next — see checklist Step 1 |
+| 6 | Evaluation framework | Next — see checklist Step 2 |
+| 7 | Fix query expansion & improve UX | Next — see checklist Steps 3-5 |
 
 ---
 
@@ -365,3 +366,53 @@ Several issues came up when running the pipeline on the system's Python 3.12 env
 | `embeddings.npy`, `density_scores.npy`, `metadata.json` | Rebuilt from real dataset |
 | `BUILD_PLAN.md` | This write-up |
 | `README.md` | Updated instructions for real data pipeline |
+
+---
+
+## Next Steps Checklist
+
+Optimization tasks organized by priority. We will work through these step by step.
+
+### High Priority — directly improves the product
+
+- [ ] **Step 1: Grow the dataset to 100+ videos**
+  - Wait for YouTube transcript API rate limit to lift, then re-run `build_dataset.py`
+  - Add more diverse search queries beyond the current 13 to cover more topics
+  - Add real TikTok/Instagram URLs to `data_collection/manual_urls.csv` for cross-platform content
+  - Goal: 100+ videos with transcripts across YouTube, TikTok, and Instagram
+
+- [ ] **Step 2: Evaluation framework (Phase 5)**
+  - Build a ground-truth set: for 10-15 test queries, manually label which videos are "relevant + instructional"
+  - Implement `evaluation/evaluate.py` with Precision@K, nDCG@10, and Mean Reciprocal Rank (MRR)
+  - Implement `evaluation/compare_baselines.py` to compare our system against:
+    - Baseline 1: pure cosine similarity (no density scoring)
+    - Baseline 2: view-count ranking (engagement-based)
+  - Prove that our ranking formula (similarity x density x topical boost) outperforms both baselines
+  - This is critical for the course report
+
+- [ ] **Step 3: Fix query expansion false matches**
+  - Current problem: "design" expands to "aesthetic, style, architecture", causing DIY content to match Tiffany queries
+  - The synonym system is too broad and context-unaware
+  - Options: weight synonym matches lower than exact matches, or make expansion context-aware so "design" only expands when relevant
+
+### Medium Priority — better user experience
+
+- [ ] **Step 4: Improve the frontend**
+  - Add filters: let users filter by platform (YouTube/TikTok/Instagram), minimum density score, or date range
+  - Show transcript snippets in result cards so users can see why a result was ranked high
+  - Add pagination or "load more" instead of fixed top-10 results
+
+- [ ] **Step 5: Use Whisper as fallback for YouTube transcripts**
+  - Currently we lose ~83% of YouTube videos because they have no auto-captions
+  - For videos without captions, download audio via yt-dlp and transcribe with Whisper locally
+  - This would dramatically increase dataset coverage and make the collection pipeline more robust
+
+### Lower Priority — polish & scale
+
+- [ ] **Step 6: Improve density scoring**
+  - The current regex-based scorer is a heuristic that may misclassify edge cases
+  - Consider training a lightweight classifier on labeled evaluation data (from Step 2) to better distinguish instructional vs. entertainment content
+
+- [ ] **Step 7: Add `.gitignore`**
+  - Exclude `__pycache__/`, `.pyc` files, and other build artifacts from the repo
+  - Quick cleanup win
