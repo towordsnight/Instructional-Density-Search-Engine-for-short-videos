@@ -12,7 +12,7 @@
 |---|---|---|
 | Indexing (embeddings) | **Done** | `create_embeddings.py` — all-MiniLM-L6-v2 sentence transformer |
 | Scoring (density heuristic) | **Done** | `instructional_score.py` — regex-based keyword scoring |
-| Search (ranking pipeline) | **Done** | `search.py` — cosine similarity × density × topical boost |
+| Search (ranking pipeline) | **Done** | `search.py` — cosine similarity × density^intent × topical boost |
 | Ranking test | **Done** | `test_ranking.py` — proves instructional > entertainment |
 | Data collection | **Done + Tested** | `data_collection/` — YouTube API + TikTok/Instagram via yt-dlp + Whisper |
 | Data collection tests | **Done (40/40 pass)** | `data_collection/test_phase1.py` — mocked unit tests for all 4 modules |
@@ -292,6 +292,7 @@ scikit-learn>=1.0.0
 | 2026-03-01 | Phase 4: Web UI | Implemented Flask web UI. `app.py` (~65 lines): loads model + data on startup, serves `/` (index page), `/api/search` (ranked JSON results), `/api/stats` (dataset statistics). `templates/index.html` (~155 lines): single-page HTML+CSS+JS with search bar, stats summary, color-coded platform badges, density bar visualization, responsive layout. Added `flask>=3.0.0` to `requirements.txt`. Wrote 15 tests in `test_phase4.py` using Flask test client with mocked model/data — all pass. Phase 3 tests still pass (30/30). Total: 124/124 tests across all phases. |
 | 2026-03-04 | Thumbnail Support & Real Data Pipeline | See detailed write-up below. |
 | 2026-03-05 | Dataset Expansion to 252 videos | Expanded search queries from 13 → 27. Implemented Whisper STT fallback (`_whisper_fallback()` in `build_dataset.py`). Added transcript caching (`dataset/transcript_cache/transcripts.json`). Collected 272 cached transcripts, built 252-video dataset. Filled metadata via `videos().list()` endpoint. Rebuilt embeddings (252 × 384). Added 18 real TikTok/Instagram URLs (engagement content). Documented full data pipeline in BUILD_PLAN. |
+| 2026-03-05 | Intent-Aware Ranking | Identified problem: "tiffany" and "tiffany design story" returned nearly identical results because static density always favors instructional content. Implemented embedding-based intent detection in `search.py`: compares query to 5 instructional + 5 browsing prototype sentences, returns intent_weight ∈ [0.3, 1.0]. Changed ranking formula from `sim × density × boost` to `sim × density^intent_weight × boost`. Browsing queries now surface lifestyle/engagement content; instructional queries still prefer tutorials. Documented algorithm trade-offs (Boolean vs BM25 vs semantic vs MF) and before/after comparison in BUILD_PLAN. |
 
 ---
 
@@ -611,6 +612,180 @@ final_score = cosine_similarity(query_embedding, doc_embedding)
 | Embedding dimensions | 384 |
 | Topic categories | 27 search queries across instructional, informational, and engagement content |
 | Manual URLs (TikTok/Instagram) | 18 curated (0 usable transcripts — music-only content) |
+
+---
+
+## Ranking System — Algorithm Design and Trade-offs
+
+This section documents the ranking algorithm, the alternatives we considered, and the design decisions behind the current system.
+
+### 1. System Architecture Overview
+
+```
+User query ("tiffany")
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│              search.py                        │
+│                                               │
+│  1. Encode query → 384-dim embedding          │
+│  2. Detect intent (instructional vs browsing) │
+│  3. Cosine similarity against all documents   │
+│  4. Apply intent-aware density weighting      │
+│  5. Apply topical boost (keyword matching)    │
+│  6. Deduplicate near-identical results        │
+│  7. Return top-K ranked results               │
+└──────────────────────────────────────────────┘
+       │
+       ▼
+final_score = similarity × density^(intent_weight) × topical_boost
+```
+
+### 2. Algorithm Selection — Why Semantic Embedding Search?
+
+We evaluated four retrieval approaches before choosing semantic embedding search:
+
+| Algorithm | How it works | Strengths | Weaknesses for our use case |
+|---|---|---|---|
+| **Boolean retrieval** | Match if document contains query terms (AND/OR) | Simple, fast, exact match | No ranking — "tiffany" once = "tiffany" everywhere. No semantic understanding — "jewelry meaning" misses "necklace symbolism". Most queries return 0 or unranked results on short transcripts. |
+| **BM25 (TF-IDF family)** | `score = Σ IDF(term) × tf_norm`. Ranks by term frequency with document length normalization. | Proven lexical ranker, handles tf and doc length well, fast | Still keyword-based — "how to cook scallops" won't match "sear the shellfish in butter". Short transcripts (30–100 words) have weak tf signals — most terms appear only once. BM25 shines on longer documents. |
+| **Semantic embedding** (our choice) | Encode query and documents into dense vectors, rank by cosine similarity | Understands meaning — "cooking tutorial" matches "recipe walkthrough". Works well on short noisy texts. No vocabulary mismatch. | Slower (model inference ~10ms/query), less interpretable, can be too "fuzzy" — sometimes matches topically adjacent but irrelevant content. |
+| **Matrix factorization** (collaborative filtering) | `R ≈ U × V^T` — decompose user-item interaction matrix | Great for personalized recommendations from user behavior | Wrong paradigm — we have no user interaction data (no clicks, watch history, ratings). MF solves "what would this user like?" not "which videos match this query?". Cold-start problem with 252 videos. |
+
+**Why we chose semantic embedding:**
+- Short-form video transcripts are noisy and use varied vocabulary across creators
+- Semantic similarity bridges vocabulary gaps that keyword methods miss
+- The `all-MiniLM-L6-v2` model (22M parameters) is fast enough for real-time search (~10ms per query on CPU)
+- A single embedding space handles both query encoding and document comparison
+
+**Why not a hybrid (BM25 + semantic)?**
+We considered `score = α × BM25 + (1-α) × cosine_sim` but opted for a simpler design: the `topical_boost` component in our formula serves a similar role to BM25 by checking if exact query terms appear in the document. This gives us the benefit of lexical matching without maintaining two separate scoring systems.
+
+### 3. The Ranking Formula
+
+#### Version 1 (original — static density)
+
+```
+final_score = cosine_similarity(query, doc) × density × topical_boost
+```
+
+**Problem discovered during testing:** This formula treats every query as if the user wants educational content. The density score is precomputed once per video and never changes:
+
+```
+density["How Tiffany was Created"]     = 0.948  (educational keywords)
+density["My Tiffany Collection Tour"]  = 0.616  (engagement keywords)
+```
+
+When a user searches "tiffany" (browsing intent — wants to see collections, jewelry styling), the system still penalizes engagement content because 0.616 < 0.948. The top results for "tiffany" and "tiffany design story" were nearly identical — both dominated by educational videos.
+
+**Root cause:** Static density acts as a hard gate that always favors instructional content, regardless of what the user is actually looking for.
+
+#### Version 2 (current — intent-aware density)
+
+```
+final_score = cosine_similarity(query, doc) × density^(intent_weight) × topical_boost
+```
+
+Where `intent_weight ∈ [0.3, 1.0]` adapts per query:
+
+| Query | intent_weight | Effect |
+|---|---|---|
+| "tiffany" | 0.42 | density^0.42 → gap between 0.948 and 0.616 shrinks from 0.33 to 0.16. Browsing content surfaces. |
+| "tiffany design story" | 0.64 | density^0.64 → moderate gap preserved. Educational content still preferred. |
+| "how to cook pasta" | 0.86 | density^0.86 → near-full penalty. Tutorials dominate. |
+| "cute outfits" | 0.50 | density^0.50 → sqrt flattening. Fashion content surfaces alongside tutorials. |
+
+**Why `density^weight` instead of `α × density + (1-α)`?** The power function preserves the [0, 1] range without rescaling and has a natural "flattening" effect: `density^0.3` compresses the gap between high and low density videos, while `density^1.0` preserves the original distribution. An additive blend would require additional normalization and doesn't have this elegant scaling property.
+
+### 4. Intent Detection — Embedding-Based Prototype Matching
+
+We evaluated three approaches for detecting query intent:
+
+| Approach | Mechanism | Pro | Con |
+|---|---|---|---|
+| **A. Rule-based (regex)** | Count instructional cue words ("how to", "tutorial", "guide") | No training data, fully interpretable, zero latency | Brittle — "tiffany design" falsely triggers on "design". Can't handle ambiguity. Every edge case needs a new rule. |
+| **B. Embedding prototypes** (our choice) | Compare query embedding to instructional/browsing prototype sentences | Semantic understanding, no labeled data needed, reuses existing model | Sensitive to prototype quality, adds ~10ms, less interpretable |
+| **C. Trained classifier** | Logistic regression on labeled query embeddings | Most accurate, learns nuance | Needs 50–100 labeled queries, could overfit on small dataset, another model to maintain |
+
+**Why we chose Option B:**
+
+1. **Reuses the sentence transformer** we already load — no new dependencies or models
+2. **Semantically aware** — understands "tiffany" is closer to "show me items" than "teach me step by step", even without keyword matching
+3. **Easy to tune** — add/edit prototype sentences without retraining
+4. **Good fit for the report** — novel enough to explain, backed by established NLP research on prototype-based classification
+
+**How it works:**
+
+```python
+# 5 instructional prototypes (pre-encoded, cached):
+"how to do something step by step tutorial"
+"explain the history and meaning behind this"
+"teach me tips and techniques for beginners"
+"learn about the origin and story of a design"
+"guide to understanding why something was created"
+
+# 5 browsing prototypes (pre-encoded, cached):
+"show me items and collections to browse"
+"what does it look like when wearing jewelry"
+"unboxing haul showcase my collection tour"
+"sharing favorite pieces and accessories"
+"beautiful luxury items and fashion inspiration"
+
+# Detection:
+inst_score  = max cosine_sim(query, instructional_prototypes)
+browse_score = max cosine_sim(query, browsing_prototypes)
+ratio = inst_score / (inst_score + browse_score)
+intent_weight = 0.3 + 0.7 × ratio    →  [0.3, 1.0]
+```
+
+The floor of 0.3 ensures density always has some influence — even for pure browsing queries, we still slightly prefer content with substance over empty engagement.
+
+### 5. Component Breakdown
+
+| Component | Role | File | Key Design Choice |
+|---|---|---|---|
+| **Cosine similarity** | Measures semantic relevance between query and document | `search.py` | Uses pre-normalized embeddings from all-MiniLM-L6-v2. O(n) dot product against 252 documents — fast enough for real-time. |
+| **Instructional density** | Scores how educational a video's content is (0–1) | `instructional_score.py` | 6 weighted signal categories (62 regex patterns) + 20 entertainment penalties. Precomputed at index time — zero cost at query time. sqrt normalization prevents keyword stuffing. |
+| **Intent detection** | Adapts density influence based on query type | `search.py` | Embedding-based prototype matching. Prototype embeddings cached after first call. Adds ~10ms per query (one encode call). |
+| **Topical boost** | Rewards exact keyword matches in document text | `search.py` | Lightweight BM25 approximation. Expands query terms via 12-entry synonym dict. Multiplier in [1.0, 1.5]. |
+| **Deduplication** | Removes near-identical results | `search.py` | Pairwise cosine similarity on top results, threshold=0.95. Prevents multiple copies of the same video appearing in different results. |
+
+### 6. Trade-off Summary
+
+| Trade-off | Our decision | Alternative | Why |
+|---|---|---|---|
+| Retrieval method | Semantic embedding (dense) | BM25 (sparse) | Short transcripts have weak tf signals; semantic matching bridges vocabulary gaps |
+| Density weighting | Query-dependent (`density^intent`) | Static (`density × 1.0`) | Static density makes browsing and instructional queries return identical results |
+| Intent detection | Embedding prototypes | Regex rules / trained classifier | Balances accuracy vs. complexity; no labeled data needed; reuses existing model |
+| Embedding model | all-MiniLM-L6-v2 (22M params) | Larger models (e.g., all-mpnet-base-v2, 110M) | Speed priority — 252 videos indexed in 5s, queries in 10ms. Larger model would improve accuracy but 5× slower. |
+| Density scoring | Regex heuristic | ML classifier | No labeled training data available; regex is interpretable and sufficient for distinguishing tutorials from hauls |
+| Topical boost | Keyword + synonym expansion | Full BM25 pipeline | Simpler to implement and maintain; synonym dict covers our domain well |
+
+### 7. Observed Results — Before vs After Intent-Aware Ranking
+
+**Query: "tiffany"** (browsing intent)
+
+| Rank | Before (static density) | After (intent_weight=0.42) |
+|---|---|---|
+| #1 | TIFFANY KNOT COLLECTION (density=0.994) | TIFFANY KNOT COLLECTION (density→0.997) |
+| #2 | How Tiffany & Co was Created?! (density=0.948) | **My Tiffany Collection** (density 0.616→0.818) ↑ |
+| #3 | TIFFANY JEWELRY TOUR (density=0.801) | How Tiffany & Co was Created?! (density→0.978) |
+| #4 | My Tiffany Collection (density=0.616) | TIFFANY JEWELRY TOUR (density→0.912) |
+| #5 | $16B Tiffany Origin Story (density=0.727) | **Thrift find necklace** (density 0.631→0.826) ↑ |
+
+Browsing/lifestyle content ("My Collection", "thrift find") moves up because density gap is compressed.
+
+**Query: "tiffany design story"** (instructional intent)
+
+| Rank | Before (static density) | After (intent_weight=0.64) |
+|---|---|---|
+| #1 | How Tiffany & Co was Created?! | How Tiffany & Co was Created?! (same) |
+| #2 | TIFFANY KNOT COLLECTION | TIFFANY KNOT COLLECTION (same) |
+| #3 | $16B Tiffany Origin Story | $16B Tiffany Origin Story (same) |
+| #4 | TIFFANY JEWELRY TOUR | **Hidden History of Tiffany** ↑ |
+| #5 | Hidden History of Tiffany | TIFFANY JEWELRY TOUR |
+
+Educational content stays on top; history-focused video moves up.
 
 ---
 
