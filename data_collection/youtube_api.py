@@ -17,6 +17,22 @@ SEARCH_QUERIES = [
     "Tiffany design meaning",
     "Tiffany jewelry history",
     "Tiffany architecture symbolism",
+    # Additional queries for broader coverage
+    "makeup tutorial shorts",
+    "yoga for beginners tutorial",
+    "gardening tips shorts",
+    "drawing tutorial shorts",
+    "math explained shorts",
+    "personal finance tips",
+    "home organization hacks",
+    "guitar lesson shorts",
+    "coding tutorial shorts",
+    "skincare routine tutorial",
+    # Engagement/lifestyle content (relevant-looking but not instructional)
+    "Tiffany jewelry collection haul",
+    "Tiffany unboxing shorts",
+    "my Tiffany collection tour",
+    "luxury jewelry collection showing",
 ]
 
 

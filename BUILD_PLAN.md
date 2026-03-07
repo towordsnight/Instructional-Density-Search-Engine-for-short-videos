@@ -10,16 +10,16 @@
 
 | Module | Status | File |
 |---|---|---|
-| Indexing (embeddings) | Done | `create_embeddings.py` — all-MiniLM-L6-v2 sentence transformer |
-| Scoring (density heuristic) | Done | `instructional_score.py` — regex-based keyword scoring |
-| Search (ranking pipeline) | Done | `search.py` — cosine similarity x density x topical boost |
-| Ranking test | Done | `test_ranking.py` — proves instructional > entertainment |
+| Indexing (embeddings) | **Done** | `create_embeddings.py` — all-MiniLM-L6-v2 sentence transformer |
+| Scoring (density heuristic) | **Done** | `instructional_score.py` — regex-based keyword scoring |
+| Search (ranking pipeline) | **Done** | `search.py` — cosine similarity × density^intent × topical boost |
+| Ranking test | **Done** | `test_ranking.py` — proves instructional > entertainment |
 | Data collection | **Done + Tested** | `data_collection/` — YouTube API + TikTok/Instagram via yt-dlp + Whisper |
 | Data collection tests | **Done (40/40 pass)** | `data_collection/test_phase1.py` — mocked unit tests for all 4 modules |
 | Text processing | **Done + Tested** | `text_processing/` — 9-step cleaning pipeline, 39/39 tests passing |
-| Real dataset | **Done (34 videos)** | Run `build_dataset.py` with API key; 31 YouTube + 3 manually added Tiffany videos |
+| Real dataset | **Done (252 videos)** | `dataset/shorts_data.json` — 252 YouTube Shorts with full metadata and transcripts |
 | Web UI | **Done + Tested** | `app.py` + `templates/index.html` — Flask backend + single-page frontend, 15/15 tests |
-| Evaluation framework | **Missing** | No systematic metrics (precision, recall, nDCG) |
+| Evaluation framework | **Not started** | No systematic metrics (precision, recall, nDCG) |
 
 ---
 
@@ -243,12 +243,12 @@ model/
 
 | Priority | Task | Status |
 |---|---|---|
-| 1 | Data collection (YouTube API + transcripts) | Done — 34 videos collected |
-| 2 | Text processing (clean transcripts) | Done — 9-step pipeline |
-| 3 | Re-run indexing on real dataset | Done — embeddings rebuilt |
-| 4 | Web UI (Flask app + HTML) | Done — with thumbnails |
-| 5 | Grow dataset to 100+ videos | Next — see checklist Step 1 |
-| 6 | Evaluation framework | Next — see checklist Step 2 |
+| 1 | Data collection (YouTube API + transcripts) | **Done** — 252 videos collected |
+| 2 | Text processing (clean transcripts) | **Done** — 9-step pipeline |
+| 3 | Re-run indexing on real dataset | **Done** — embeddings rebuilt (252 × 384) |
+| 4 | Web UI (Flask app + HTML) | **Done** — with thumbnails |
+| 5 | Grow dataset to 100+ videos | **Done** — 252 videos across 27 queries |
+| 6 | Evaluation framework | **Next** — see checklist Step 2 |
 | 7 | Fix query expansion & improve UX | Next — see checklist Steps 3-5 |
 
 ---
@@ -291,6 +291,8 @@ scikit-learn>=1.0.0
 | 2026-03-01 | Phase 3: Enhance Modules | Enhanced `instructional_score.py`: weighted signal categories (6 categories, weights 1.0–3.0), 20 entertainment penalty patterns (2.0 per match), length-normalized density scoring. Enhanced `search.py`: query expansion with 12-entry synonym dict, cosine-similarity deduplication (threshold 0.95), video URL construction for YouTube/TikTok/Instagram. Wrote 30 tests in `test_phase3.py` — all pass. Ranking test still passes (instructional ranks 1-3, vlogs 4-5 with density 0.0 due to entertainment penalties). All prior tests still pass (Phase 2: 39/39, Phase 1: 40/40). No new dependencies added. |
 | 2026-03-01 | Phase 4: Web UI | Implemented Flask web UI. `app.py` (~65 lines): loads model + data on startup, serves `/` (index page), `/api/search` (ranked JSON results), `/api/stats` (dataset statistics). `templates/index.html` (~155 lines): single-page HTML+CSS+JS with search bar, stats summary, color-coded platform badges, density bar visualization, responsive layout. Added `flask>=3.0.0` to `requirements.txt`. Wrote 15 tests in `test_phase4.py` using Flask test client with mocked model/data — all pass. Phase 3 tests still pass (30/30). Total: 124/124 tests across all phases. |
 | 2026-03-04 | Thumbnail Support & Real Data Pipeline | See detailed write-up below. |
+| 2026-03-05 | Dataset Expansion to 252 videos | Expanded search queries from 13 → 27. Implemented Whisper STT fallback (`_whisper_fallback()` in `build_dataset.py`). Added transcript caching (`dataset/transcript_cache/transcripts.json`). Collected 272 cached transcripts, built 252-video dataset. Filled metadata via `videos().list()` endpoint. Rebuilt embeddings (252 × 384). Added 18 real TikTok/Instagram URLs (engagement content). Documented full data pipeline in BUILD_PLAN. |
+| 2026-03-05 | Intent-Aware Ranking | Identified problem: "tiffany" and "tiffany design story" returned nearly identical results because static density always favors instructional content. Implemented embedding-based intent detection in `search.py`: compares query to 5 instructional + 5 browsing prototype sentences, returns intent_weight ∈ [0.3, 1.0]. Changed ranking formula from `sim × density × boost` to `sim × density^intent_weight × boost`. Browsing queries now surface lifestyle/engagement content; instructional queries still prefer tutorials. Documented algorithm trade-offs (Boolean vs BM25 vs semantic vs MF) and before/after comparison in BUILD_PLAN. |
 
 ---
 
@@ -346,12 +348,13 @@ Several issues came up when running the pipeline on the system's Python 3.12 env
 | `Disabling PyTorch because >= 2.4 required` | `transformers` 5.x needs torch >= 2.4, but only 2.2.2 available | Downgraded to `sentence-transformers` < 4 and `transformers` < 5 |
 | `TypeError: Object of type Timestamp is not JSON serializable` | Pandas 3.0 auto-converts date strings to `Timestamp` objects | Added type conversion loop in `create_embeddings.py` before JSON serialization |
 
-### Current dataset status
+### Current dataset status (updated 2026-03-05)
 
-- **34 total videos**: 31 from YouTube API + 3 manually added Tiffany entries
-- All have real URLs, thumbnails, and transcripts
-- To grow the dataset: wait for YouTube transcript API rate limit to lift, then re-run `build_dataset.py`
-- To add TikTok/Instagram: replace placeholder URLs in `data_collection/manual_urls.csv` with real ones
+- **252 total videos**: all YouTube Shorts with full metadata (titles, channels, views, likes, thumbnails, transcripts)
+- Collected via 27 search queries across instructional, informational, and engagement topics
+- Transcript sources: ~200 from YouTube captions API, ~52 from Whisper STT fallback
+- 272 transcripts cached in `dataset/transcript_cache/transcripts.json` for fast re-runs
+- 18 TikTok/Instagram URLs curated but produced no usable transcripts (music-only content)
 
 ### Files changed
 
@@ -369,17 +372,435 @@ Several issues came up when running the pipeline on the system's Python 3.12 env
 
 ---
 
+## Data Pipeline — Complete Documentation
+
+This section documents the full data pipeline: sources, collection, preprocessing, feature construction, and embedding generation.
+
+### 1. Data Sources
+
+Our dataset contains **252 short-form videos** collected from a single platform via three methods:
+
+| Source | Method | Count | Content Type |
+|---|---|---|---|
+| YouTube Shorts (captions) | YouTube Data API v3 + `youtube-transcript-api` | ~200 | Transcripts from YouTube's auto-generated or manual captions |
+| YouTube Shorts (Whisper) | YouTube Data API v3 + `yt-dlp` + OpenAI Whisper | ~52 | Audio downloaded via yt-dlp, transcribed locally with Whisper `base` model |
+| TikTok / Instagram (manual) | 18 curated URLs in `manual_urls.csv` | 0 collected* | Engagement content (Tiffany unboxings, hauls, collection tours) |
+
+*\*TikTok/Instagram videos are music-only content and produced empty Whisper transcripts — included as URLs but no transcript data was extractable.*
+
+**YouTube Data API v3** — used for two purposes:
+- `search().list()` — discovers short-form video IDs matching 27 topic queries (`videoDuration=short`, `type=video`, `order=relevance`, 10 results per query)
+- `videos().list()` — batch-fetches metadata (title, channel, views, likes, publish date, thumbnail URL) in groups of 50
+
+**Transcript sources** — two-layer strategy:
+1. **YouTube captions API** (`youtube-transcript-api`) — first choice; pulls auto-generated or manual captions directly. Fast, no audio download needed.
+2. **Whisper STT fallback** — for videos without captions, downloads audio via `yt-dlp`, transcribes with OpenAI Whisper (`base` model, ~74M parameters, runs on CPU). Results are cached to `dataset/transcript_cache/transcripts.json` so subsequent runs skip already-transcribed videos.
+
+**Search queries** — 27 queries organized into three categories:
+
+| Category | Queries | Purpose |
+|---|---|---|
+| Instructional (13) | "how to cook", "quick workout tutorial", "DIY craft tutorial", "tech tips tutorial", "science experiment tutorial", "language learning tips", "photography tips", "music production tutorial", "makeup tutorial shorts", "yoga for beginners tutorial", "gardening tips shorts", "drawing tutorial shorts", "coding tutorial shorts" | Core educational content — tutorials, how-tos, lessons |
+| Informational (7) | "history explained shorts", "fashion design inspiration", "math explained shorts", "personal finance tips", "home organization hacks", "guitar lesson shorts", "skincare routine tutorial" | Knowledge-sharing content — explanations, tips, routines |
+| Tiffany / Engagement (7) | "Tiffany design meaning", "Tiffany jewelry history", "Tiffany architecture symbolism", "Tiffany jewelry collection haul", "Tiffany unboxing shorts", "my Tiffany collection tour", "luxury jewelry collection showing" | Mix of domain-specific instructional and pure engagement content — tests the system's ability to distinguish educational from entertainment videos on the same topic |
+
+**TikTok / Instagram URLs** — 18 manually curated URLs (`data_collection/manual_urls.csv`) featuring fashion/jewelry influencers sharing Tiffany collections, unboxings, and hauls. These represent engagement-first content that looks topically relevant but is not instructional.
+
+### 2. Data Collection Pipeline
+
+The pipeline is orchestrated by `data_collection/build_dataset.py`:
+
+```
+                    ┌─────────────────────────────────────────┐
+                    │         build_dataset.py (CLI)           │
+                    │  --api-key, --results-per-query,         │
+                    │  --whisper-model, --manual-urls           │
+                    └───────────┬─────────────┬───────────────┘
+                                │             │
+                    ┌───────────▼───────┐ ┌───▼──────────────────┐
+                    │  collect_youtube() │ │  collect_manual()     │
+                    │  (27 queries × 10)│ │  (manual_urls.csv)    │
+                    └───────┬───────────┘ └───────┬──────────────┘
+                            │                     │
+                    ┌───────▼───────────┐ ┌───────▼──────────────┐
+                    │ YouTube API search │ │ yt-dlp audio download│
+                    │ → video IDs       │ │ → Whisper transcribe  │
+                    └───────┬───────────┘ └───────┬──────────────┘
+                            │                     │
+                    ┌───────▼───────────┐         │
+                    │ Transcript fetch:  │         │
+                    │ 1. Cache check     │         │
+                    │ 2. Captions API    │         │
+                    │ 3. Whisper fallback│         │
+                    └───────┬───────────┘         │
+                            │                     │
+                    ┌───────▼─────────────────────▼──────┐
+                    │          Merge + Deduplicate        │
+                    │     (by video ID, preserves first)  │
+                    └───────────────┬────────────────────┘
+                                    │
+                    ┌───────────────▼────────────────────┐
+                    │     Clean transcripts (9 steps)     │
+                    │     text_processing/clean_transcript │
+                    └───────────────┬────────────────────┘
+                                    │
+                    ┌───────────────▼────────────────────┐
+                    │   Save → dataset/shorts_data.json   │
+                    └────────────────────────────────────┘
+```
+
+**Caching**: All transcripts (from captions API and Whisper) are stored in `dataset/transcript_cache/transcripts.json`. On re-runs, cached transcripts are used immediately without re-fetching, making the pipeline idempotent and fast for incremental updates.
+
+**Output format** — each video in `dataset/shorts_data.json`:
+```json
+{
+  "id": "yt_abc123",
+  "platform": "youtube",
+  "title": "How to Cook Perfect Scallops #SHORTS",
+  "transcript": "It doesn't get much better than some perfectly cooked scallops...",
+  "url": "https://www.youtube.com/shorts/abc123",
+  "channel": "Mr. Make It Happen",
+  "views": 1234567,
+  "likes": 45678,
+  "published_at": "2024-03-15T18:30:00Z",
+  "thumbnail": "https://i.ytimg.com/vi/abc123/hqdefault.jpg"
+}
+```
+
+### 3. Preprocessing — Transcript Cleaning
+
+Raw transcripts from YouTube captions and Whisper contain noise that degrades embedding quality. We apply a **9-step composable cleaning pipeline** (`text_processing/clean_transcript.py`, stdlib only — no external dependencies):
+
+| Step | Function | What it does | Example |
+|---|---|---|---|
+| 1. Unicode normalization | `_normalize_unicode()` | NFC normalization, remove zero-width chars (U+200B–U+200F, BOM), replace non-breaking spaces | `"café\u200b"` → `"café"` |
+| 2. Caption artifact removal | `_remove_caption_artifacts()` | Strip YouTube/Whisper tags: `[Music]`, `[Applause]`, `[Laughter]`, `[Inaudible]`, `[Foreign]` | `"Hello [Music] world"` → `"Hello  world"` |
+| 3. Timestamp removal | `_remove_timestamps()` | Strip time patterns: `0:15`, `1:23:45`, `(00:15)`, `[1:23]` | `"At 0:15 we start"` → `"At  we start"` |
+| 4. URL removal | `_remove_urls()` | Strip `http://` and `https://` URLs | `"Visit https://example.com"` → `"Visit "` |
+| 5. Mention/hashtag removal | `_remove_mentions_hashtags()` | Strip `@user` mentions and `#hashtags` | `"Follow @chef #cooking"` → `"Follow  "` |
+| 6. Filler word removal | `_remove_fillers()` | Remove: `uh`, `um`, `hmm`, `er`, `ah`, `you know`, `i mean` (conservative list — keeps ambiguous words like "like", "so") | `"So um you need to uh mix"` → `"So  you need to  mix"` |
+| 7. Repeated word collapse | `_collapse_repeated_words()` | Deduplicate stutters: `"the the the"` → `"the"` | `"add add the the salt"` → `"add the salt"` |
+| 8. Whitespace normalization | `_normalize_whitespace()` | Collapse multi-spaces, fix punctuation spacing | `"Hello  ,  world"` → `"Hello, world"` |
+| 9. Sentence segmentation | `_segment_sentences()` | Insert periods before discourse markers (`So`, `First`, `Then`, `Next`, `Finally`, etc.) in run-on text lacking punctuation | `"mix well Then add salt"` → `"mix well. Then add salt"` |
+
+**Why this order matters**: Unicode normalization must come first (consistent byte representation). Artifact/timestamp/URL removal comes before filler removal (so tags aren't partially matched as fillers). Whitespace normalization comes last (cleans up gaps left by all prior removals). Sentence segmentation is final (operates on clean text).
+
+**Validation**: 39 unit tests cover all steps, edge cases (null/empty input, clean passthrough, no false positives), and verify that cleaning preserves the instructional ranking order.
+
+### 4. Filtering
+
+Videos are filtered at two stages:
+
+**During collection:**
+- Videos with no transcript (neither captions nor Whisper output) are **skipped entirely** — they cannot be searched by content
+- Transcripts shorter than 10 characters after cleaning are **dropped** (likely noise-only)
+- Duplicate video IDs are **deduplicated** (first occurrence wins)
+
+**During search (runtime):**
+- Near-duplicate results are removed via cosine similarity on embeddings (threshold = 0.95)
+- Optional `min_density` floor prevents zero-scored videos from being invisible
+
+**Dataset composition after filtering:**
+- Started with 264 unique YouTube video IDs from 27 queries
+- 252 had usable transcripts (captions or Whisper) → final dataset
+- 12 were dropped (unavailable videos, empty transcripts, or failed downloads)
+
+### 5. Feature Construction
+
+Each video has two computed features used for ranking:
+
+#### 5a. Instructional Density Score (0.0 – 1.0)
+
+Computed by `instructional_score.py`. Measures how educational/instructional a video's content is.
+
+**Signal categories** (6 categories, 62 regex patterns total):
+
+| Category | Weight | Example Patterns | Purpose |
+|---|---|---|---|
+| `how_to_cues` | 3.0 | "how to", "tutorial", "step by step", "let me show", "you need" | Strongest instructional signal — explicit teaching intent |
+| `educational_concepts` | 2.0 | "learn", "teach", "tips", "recipe", "workout", "exercise" | Educational framing words |
+| `domain_knowledge` | 2.0 | "design", "architecture", "symbolism", "meaning", "collection" | Subject-matter expertise indicators |
+| `historical_context` | 1.5 | "history", "heritage", "legacy", "origin", "since 1837" | Historical/contextual depth |
+| `sequential_markers` | 1.5 | "first", "then", "next", "finally", "after that" | Step-by-step structure (common in tutorials) |
+| `action_verbs` | 1.0 | "make", "add", "mix", "cut", "use", "create", "build" | Instructional action language |
+
+**Entertainment penalty** (20 patterns, 2.0 penalty each):
+- Penalizes engagement-first language: "omg", "bestie", "haul", "unboxing", "slay", "vibe", "obsessed", "no cap", "it's giving", "I'm dead", etc.
+- Pure entertainment content (hauls, unboxings) scores near 0.0
+
+**Scoring formula:**
+```
+weighted_sum = Σ (match_count × category_weight)  for each category
+penalty = entertainment_match_count × 2.0
+net = max(0, weighted_sum - penalty)
+density = (net / word_count) × 100          # signals per 100 words
+raw = min(density, 20.0)                     # cap at 20
+score = min(1.0, sqrt(raw) / 4.5)           # sqrt curve, normalized to [0, 1]
+```
+
+The sqrt curve ensures diminishing returns — a video with 5 instructional signals per 100 words scores meaningfully higher than one with 1, but the difference between 15 and 20 is small. This prevents keyword-stuffed content from gaming the score.
+
+#### 5b. Sentence Embedding (384-dimensional vector)
+
+Computed by `create_embeddings.py` using the `all-MiniLM-L6-v2` sentence transformer.
+
+**Input text construction:**
+```
+embedding_text = title + " [SEP] " + transcript
+```
+
+The `[SEP]` token separates the title (concise topic signal) from the transcript (detailed content), allowing the model to leverage both. Title provides topic-level matching; transcript provides content-level matching.
+
+**Model**: `all-MiniLM-L6-v2` (22M parameters, 384-dim output)
+- Trained on 1B+ sentence pairs for semantic similarity
+- Optimized for speed — encodes 252 videos in ~5 seconds on CPU
+- Produces L2-normalized embeddings suitable for cosine similarity
+
+### 6. Embedding Construction Process
+
+The embedding pipeline (`create_embeddings.py`) produces three output files:
+
+```
+dataset/shorts_data.json (252 videos)
+         │
+         ▼
+┌──────────────────────────────────────┐
+│  create_embeddings.py                │
+│                                      │
+│  1. Load dataset (JSON → DataFrame)  │
+│  2. Combine: title [SEP] transcript  │
+│  3. Encode with all-MiniLM-L6-v2     │
+│     (batch_size=32, 8 batches)       │
+│  4. Compute density scores           │
+│     (instructional_score.py)         │
+│  5. Save outputs                     │
+└──────────┬───────────┬──────────┬────┘
+           │           │          │
+    embeddings.npy  density_scores.npy  metadata.json
+    (252 × 384)      (252,)             (252 records)
+```
+
+**Output files:**
+
+| File | Shape | Description |
+|---|---|---|
+| `embeddings.npy` | (252, 384) | Float32 sentence embeddings — one row per video |
+| `density_scores.npy` | (252,) | Float64 instructional density scores — one value per video [0.0, 1.0] |
+| `metadata.json` | 252 records | All video fields (id, title, transcript, url, channel, views, likes, thumbnail, published_at, platform) — used for displaying search results |
+
+**How search uses these:**
+```
+final_score = cosine_similarity(query_embedding, doc_embedding)
+            × instructional_density_score
+            × topical_boost(query_terms, doc_text)
+```
+
+- `cosine_similarity` — measures semantic relevance between query and video content
+- `instructional_density_score` — upweights educational content, downweights entertainment
+- `topical_boost` — up to 1.5× multiplier when the document contains exact query terms (with synonym expansion)
+
+### 7. Dataset Statistics
+
+| Metric | Value |
+|---|---|
+| Total videos | 252 |
+| Platform | YouTube Shorts (all) |
+| Transcript source: captions | ~200 (77%) |
+| Transcript source: Whisper | ~52 (20%) |
+| Transcript source: none (dropped) | 12 (5%) |
+| Density score range | 0.000 – 0.994 |
+| Embedding dimensions | 384 |
+| Topic categories | 27 search queries across instructional, informational, and engagement content |
+| Manual URLs (TikTok/Instagram) | 18 curated (0 usable transcripts — music-only content) |
+
+---
+
+## Ranking System — Algorithm Design and Trade-offs
+
+This section documents the ranking algorithm, the alternatives we considered, and the design decisions behind the current system.
+
+### 1. System Architecture Overview
+
+```
+User query ("tiffany")
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│              search.py                        │
+│                                               │
+│  1. Encode query → 384-dim embedding          │
+│  2. Detect intent (instructional vs browsing) │
+│  3. Cosine similarity against all documents   │
+│  4. Apply intent-aware density weighting      │
+│  5. Apply topical boost (keyword matching)    │
+│  6. Deduplicate near-identical results        │
+│  7. Return top-K ranked results               │
+└──────────────────────────────────────────────┘
+       │
+       ▼
+final_score = similarity × density^(intent_weight) × topical_boost
+```
+
+### 2. Algorithm Selection — Why Semantic Embedding Search?
+
+We evaluated four retrieval approaches before choosing semantic embedding search:
+
+| Algorithm | How it works | Strengths | Weaknesses for our use case |
+|---|---|---|---|
+| **Boolean retrieval** | Match if document contains query terms (AND/OR) | Simple, fast, exact match | No ranking — "tiffany" once = "tiffany" everywhere. No semantic understanding — "jewelry meaning" misses "necklace symbolism". Most queries return 0 or unranked results on short transcripts. |
+| **BM25 (TF-IDF family)** | `score = Σ IDF(term) × tf_norm`. Ranks by term frequency with document length normalization. | Proven lexical ranker, handles tf and doc length well, fast | Still keyword-based — "how to cook scallops" won't match "sear the shellfish in butter". Short transcripts (30–100 words) have weak tf signals — most terms appear only once. BM25 shines on longer documents. |
+| **Semantic embedding** (our choice) | Encode query and documents into dense vectors, rank by cosine similarity | Understands meaning — "cooking tutorial" matches "recipe walkthrough". Works well on short noisy texts. No vocabulary mismatch. | Slower (model inference ~10ms/query), less interpretable, can be too "fuzzy" — sometimes matches topically adjacent but irrelevant content. |
+| **Matrix factorization** (collaborative filtering) | `R ≈ U × V^T` — decompose user-item interaction matrix | Great for personalized recommendations from user behavior | Wrong paradigm — we have no user interaction data (no clicks, watch history, ratings). MF solves "what would this user like?" not "which videos match this query?". Cold-start problem with 252 videos. |
+
+**Why we chose semantic embedding:**
+- Short-form video transcripts are noisy and use varied vocabulary across creators
+- Semantic similarity bridges vocabulary gaps that keyword methods miss
+- The `all-MiniLM-L6-v2` model (22M parameters) is fast enough for real-time search (~10ms per query on CPU)
+- A single embedding space handles both query encoding and document comparison
+
+**Why not a hybrid (BM25 + semantic)?**
+We considered `score = α × BM25 + (1-α) × cosine_sim` but opted for a simpler design: the `topical_boost` component in our formula serves a similar role to BM25 by checking if exact query terms appear in the document. This gives us the benefit of lexical matching without maintaining two separate scoring systems.
+
+### 3. The Ranking Formula
+
+#### Version 1 (original — static density)
+
+```
+final_score = cosine_similarity(query, doc) × density × topical_boost
+```
+
+**Problem discovered during testing:** This formula treats every query as if the user wants educational content. The density score is precomputed once per video and never changes:
+
+```
+density["How Tiffany was Created"]     = 0.948  (educational keywords)
+density["My Tiffany Collection Tour"]  = 0.616  (engagement keywords)
+```
+
+When a user searches "tiffany" (browsing intent — wants to see collections, jewelry styling), the system still penalizes engagement content because 0.616 < 0.948. The top results for "tiffany" and "tiffany design story" were nearly identical — both dominated by educational videos.
+
+**Root cause:** Static density acts as a hard gate that always favors instructional content, regardless of what the user is actually looking for.
+
+#### Version 2 (current — intent-aware density)
+
+```
+final_score = cosine_similarity(query, doc) × density^(intent_weight) × topical_boost
+```
+
+Where `intent_weight ∈ [0.3, 1.0]` adapts per query:
+
+| Query | intent_weight | Effect |
+|---|---|---|
+| "tiffany" | 0.42 | density^0.42 → gap between 0.948 and 0.616 shrinks from 0.33 to 0.16. Browsing content surfaces. |
+| "tiffany design story" | 0.64 | density^0.64 → moderate gap preserved. Educational content still preferred. |
+| "how to cook pasta" | 0.86 | density^0.86 → near-full penalty. Tutorials dominate. |
+| "cute outfits" | 0.50 | density^0.50 → sqrt flattening. Fashion content surfaces alongside tutorials. |
+
+**Why `density^weight` instead of `α × density + (1-α)`?** The power function preserves the [0, 1] range without rescaling and has a natural "flattening" effect: `density^0.3` compresses the gap between high and low density videos, while `density^1.0` preserves the original distribution. An additive blend would require additional normalization and doesn't have this elegant scaling property.
+
+### 4. Intent Detection — Embedding-Based Prototype Matching
+
+We evaluated three approaches for detecting query intent:
+
+| Approach | Mechanism | Pro | Con |
+|---|---|---|---|
+| **A. Rule-based (regex)** | Count instructional cue words ("how to", "tutorial", "guide") | No training data, fully interpretable, zero latency | Brittle — "tiffany design" falsely triggers on "design". Can't handle ambiguity. Every edge case needs a new rule. |
+| **B. Embedding prototypes** (our choice) | Compare query embedding to instructional/browsing prototype sentences | Semantic understanding, no labeled data needed, reuses existing model | Sensitive to prototype quality, adds ~10ms, less interpretable |
+| **C. Trained classifier** | Logistic regression on labeled query embeddings | Most accurate, learns nuance | Needs 50–100 labeled queries, could overfit on small dataset, another model to maintain |
+
+**Why we chose Option B:**
+
+1. **Reuses the sentence transformer** we already load — no new dependencies or models
+2. **Semantically aware** — understands "tiffany" is closer to "show me items" than "teach me step by step", even without keyword matching
+3. **Easy to tune** — add/edit prototype sentences without retraining
+4. **Good fit for the report** — novel enough to explain, backed by established NLP research on prototype-based classification
+
+**How it works:**
+
+```python
+# 5 instructional prototypes (pre-encoded, cached):
+"how to do something step by step tutorial"
+"explain the history and meaning behind this"
+"teach me tips and techniques for beginners"
+"learn about the origin and story of a design"
+"guide to understanding why something was created"
+
+# 5 browsing prototypes (pre-encoded, cached):
+"show me items and collections to browse"
+"what does it look like when wearing jewelry"
+"unboxing haul showcase my collection tour"
+"sharing favorite pieces and accessories"
+"beautiful luxury items and fashion inspiration"
+
+# Detection:
+inst_score  = max cosine_sim(query, instructional_prototypes)
+browse_score = max cosine_sim(query, browsing_prototypes)
+ratio = inst_score / (inst_score + browse_score)
+intent_weight = 0.3 + 0.7 × ratio    →  [0.3, 1.0]
+```
+
+The floor of 0.3 ensures density always has some influence — even for pure browsing queries, we still slightly prefer content with substance over empty engagement.
+
+### 5. Component Breakdown
+
+| Component | Role | File | Key Design Choice |
+|---|---|---|---|
+| **Cosine similarity** | Measures semantic relevance between query and document | `search.py` | Uses pre-normalized embeddings from all-MiniLM-L6-v2. O(n) dot product against 252 documents — fast enough for real-time. |
+| **Instructional density** | Scores how educational a video's content is (0–1) | `instructional_score.py` | 6 weighted signal categories (62 regex patterns) + 20 entertainment penalties. Precomputed at index time — zero cost at query time. sqrt normalization prevents keyword stuffing. |
+| **Intent detection** | Adapts density influence based on query type | `search.py` | Embedding-based prototype matching. Prototype embeddings cached after first call. Adds ~10ms per query (one encode call). |
+| **Topical boost** | Rewards exact keyword matches in document text | `search.py` | Lightweight BM25 approximation. Expands query terms via 12-entry synonym dict. Multiplier in [1.0, 1.5]. |
+| **Deduplication** | Removes near-identical results | `search.py` | Pairwise cosine similarity on top results, threshold=0.95. Prevents multiple copies of the same video appearing in different results. |
+
+### 6. Trade-off Summary
+
+| Trade-off | Our decision | Alternative | Why |
+|---|---|---|---|
+| Retrieval method | Semantic embedding (dense) | BM25 (sparse) | Short transcripts have weak tf signals; semantic matching bridges vocabulary gaps |
+| Density weighting | Query-dependent (`density^intent`) | Static (`density × 1.0`) | Static density makes browsing and instructional queries return identical results |
+| Intent detection | Embedding prototypes | Regex rules / trained classifier | Balances accuracy vs. complexity; no labeled data needed; reuses existing model |
+| Embedding model | all-MiniLM-L6-v2 (22M params) | Larger models (e.g., all-mpnet-base-v2, 110M) | Speed priority — 252 videos indexed in 5s, queries in 10ms. Larger model would improve accuracy but 5× slower. |
+| Density scoring | Regex heuristic | ML classifier | No labeled training data available; regex is interpretable and sufficient for distinguishing tutorials from hauls |
+| Topical boost | Keyword + synonym expansion | Full BM25 pipeline | Simpler to implement and maintain; synonym dict covers our domain well |
+
+### 7. Observed Results — Before vs After Intent-Aware Ranking
+
+**Query: "tiffany"** (browsing intent)
+
+| Rank | Before (static density) | After (intent_weight=0.42) |
+|---|---|---|
+| #1 | TIFFANY KNOT COLLECTION (density=0.994) | TIFFANY KNOT COLLECTION (density→0.997) |
+| #2 | How Tiffany & Co was Created?! (density=0.948) | **My Tiffany Collection** (density 0.616→0.818) ↑ |
+| #3 | TIFFANY JEWELRY TOUR (density=0.801) | How Tiffany & Co was Created?! (density→0.978) |
+| #4 | My Tiffany Collection (density=0.616) | TIFFANY JEWELRY TOUR (density→0.912) |
+| #5 | $16B Tiffany Origin Story (density=0.727) | **Thrift find necklace** (density 0.631→0.826) ↑ |
+
+Browsing/lifestyle content ("My Collection", "thrift find") moves up because density gap is compressed.
+
+**Query: "tiffany design story"** (instructional intent)
+
+| Rank | Before (static density) | After (intent_weight=0.64) |
+|---|---|---|
+| #1 | How Tiffany & Co was Created?! | How Tiffany & Co was Created?! (same) |
+| #2 | TIFFANY KNOT COLLECTION | TIFFANY KNOT COLLECTION (same) |
+| #3 | $16B Tiffany Origin Story | $16B Tiffany Origin Story (same) |
+| #4 | TIFFANY JEWELRY TOUR | **Hidden History of Tiffany** ↑ |
+| #5 | Hidden History of Tiffany | TIFFANY JEWELRY TOUR |
+
+Educational content stays on top; history-focused video moves up.
+
+---
+
 ## Next Steps Checklist
 
 Optimization tasks organized by priority. We will work through these step by step.
 
 ### High Priority — directly improves the product
 
-- [ ] **Step 1: Grow the dataset to 100+ videos**
-  - Wait for YouTube transcript API rate limit to lift, then re-run `build_dataset.py`
-  - Add more diverse search queries beyond the current 13 to cover more topics
-  - Add real TikTok/Instagram URLs to `data_collection/manual_urls.csv` for cross-platform content
-  - Goal: 100+ videos with transcripts across YouTube, TikTok, and Instagram
+- [x] **Step 1: Grow the dataset to 100+ videos**
+  - Expanded from 34 to 252 videos
+  - Added 14 new search queries (27 total) covering more topics
+  - Implemented Whisper STT fallback for videos without captions
+  - Added transcript caching for fast re-runs
+  - Added 18 real TikTok/Instagram URLs (music-only, no usable transcripts)
 
 - [ ] **Step 2: Evaluation framework (Phase 5)**
   - Build a ground-truth set: for 10-15 test queries, manually label which videos are "relevant + instructional"

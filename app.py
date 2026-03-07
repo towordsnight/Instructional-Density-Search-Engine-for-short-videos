@@ -7,7 +7,7 @@ Serves a single-page interface for searching indexed short-form videos.
 import json
 
 import numpy as np
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
 from create_embeddings import load_model
 from search import search
@@ -45,9 +45,10 @@ def api_search():
         return jsonify({"error": "Missing required parameter: q"}), 400
 
     k = request.args.get("k", 10, type=int)
+    min_density = request.args.get("min_density", 0.1, type=float)
     results = search(
         model, q, embeddings, density_scores, metadata,
-        top_k=k, min_density=0.1,
+        top_k=k, min_density=min_density,
     )
     return jsonify(results)
 

@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -11,12 +12,59 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from data_collection.youtube_api import SEARCH_QUERIES, get_video_details, search_shorts
-from data_collection.transcript_fetcher import fetch_youtube_transcript
+from data_collection.transcript_fetcher import (
+    fetch_youtube_transcript,
+    transcribe_with_whisper,
+    cache_transcript,
+)
 from data_collection.tiktok_instagram_collector import process_manual_urls
 from text_processing.clean_transcript import clean_transcript
 
 
-def collect_youtube(api_key: str, queries: list[str], results_per_query: int = 10) -> list[dict]:
+def _whisper_fallback(video_id: str, whisper_model: str) -> str | None:
+    """Download YouTube audio via yt-dlp and transcribe with Whisper."""
+    try:
+        import yt_dlp
+
+        url = f"https://www.youtube.com/shorts/{video_id}"
+        with tempfile.TemporaryDirectory(prefix="yt_whisper_") as tmp_dir:
+            audio_path = os.path.join(tmp_dir, f"{video_id}.mp3")
+            ydl_opts = {
+                "format": "bestaudio/best",
+                "outtmpl": audio_path,
+                "postprocessors": [{
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                }],
+                "quiet": True,
+                "no_warnings": True,
+            }
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+
+            # yt-dlp may append .mp3
+            if not os.path.exists(audio_path) and os.path.exists(audio_path + ".mp3"):
+                audio_path = audio_path + ".mp3"
+
+            if not os.path.exists(audio_path):
+                return None
+
+            transcript = transcribe_with_whisper(audio_path, whisper_model)
+            if transcript:
+                cache_transcript(video_id, transcript)
+            return transcript
+    except Exception as e:
+        print(f"    [Whisper fallback failed for {video_id}: {e}]")
+        return None
+
+
+def collect_youtube(
+    api_key: str,
+    queries: list[str],
+    results_per_query: int = 25,
+    whisper_model: str = "base",
+) -> list[dict]:
     """Search YouTube across multiple queries and fetch transcripts."""
     print(f"\n=== YouTube Collection ({len(queries)} queries, ~{results_per_query} each) ===")
 
@@ -37,17 +85,29 @@ def collect_youtube(api_key: str, queries: list[str], results_per_query: int = 1
     details = get_video_details(api_key, video_ids)
     details_map = {d["video_id"]: d for d in details}
 
-    # Step 3: Fetch transcripts (with delay to avoid IP bans)
+    # Step 3: Fetch transcripts (caption API first, Whisper fallback)
     print("  Fetching transcripts...")
     dataset = []
     skipped = 0
+    caption_count = 0
+    whisper_count = 0
     for i, vid_id in enumerate(video_ids):
         detail = details_map.get(vid_id)
         if not detail:
             skipped += 1
             continue
 
+        # Try caption API first (uses cache internally)
         transcript = fetch_youtube_transcript(vid_id)
+        if transcript:
+            caption_count += 1
+        else:
+            # Fallback: download audio and transcribe with Whisper
+            print(f"    [{i+1}/{len(video_ids)}] No captions for {vid_id}, trying Whisper...")
+            transcript = _whisper_fallback(vid_id, whisper_model)
+            if transcript:
+                whisper_count += 1
+
         if not transcript:
             skipped += 1
             continue
@@ -69,7 +129,7 @@ def collect_youtube(api_key: str, queries: list[str], results_per_query: int = 1
         if (i + 1) % 5 == 0:
             time.sleep(1)
 
-    print(f"  YouTube: {len(dataset)} videos collected, {skipped} skipped (no transcript)")
+    print(f"  YouTube: {len(dataset)} collected (captions: {caption_count}, whisper: {whisper_count}), {skipped} skipped")
     return dataset
 
 
@@ -117,8 +177,8 @@ def main():
     parser.add_argument(
         "--results-per-query",
         type=int,
-        default=10,
-        help="Number of YouTube results per search query (default: 10)",
+        default=25,
+        help="Number of YouTube results per search query (default: 25)",
     )
     parser.add_argument(
         "--whisper-model",
@@ -148,7 +208,7 @@ def main():
     dataset = list(existing)
 
     # Collect from YouTube
-    yt_data = collect_youtube(args.api_key, SEARCH_QUERIES, args.results_per_query)
+    yt_data = collect_youtube(args.api_key, SEARCH_QUERIES, args.results_per_query, args.whisper_model)
     dataset.extend(yt_data)
 
     # Collect from manual URLs (TikTok/Instagram)
