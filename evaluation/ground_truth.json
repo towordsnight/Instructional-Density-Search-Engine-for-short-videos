@@ -1,0 +1,5180 @@
+{
+  "description": "Ground truth with dual labels for 15 queries across 86 videos. relevance: 0=irrelevant, 1=marginal, 2=relevant, 3=highly relevant. instructional: 0=not instructional, 1=minimal, 2=moderate, 3=highly instructional.",
+  "queries": [
+    {
+      "query": "how to cook steak",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "quick workout for beginners",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "DIY craft tutorial",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "computer hardware tips",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 2,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 1,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "tiffany design meaning",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "history facts",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 2,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "knife skills cooking technique",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 3,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 1,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "home exercise no equipment",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 2,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "paper craft ideas",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 1,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 2,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "tiffany jewelry history",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 1,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 3,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "beginner photography tips",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "learn to code python",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "how to draw faces",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 2,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "skincare routine for beginners",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    },
+    {
+      "query": "music production tutorial",
+      "labels": {
+        "yt_6Db60rwdOuY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_j19HFPplMQ0": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_f-twQeqQAZE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_AmC9SmCBUj4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_dv7BDkQmvhA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_yzDAApWOgYg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VAHnSiSBf5g": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_WdYd_UCiZsM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xxzNu82YL10": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_jx9I-1D6GLs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_LFF7iCW5Y2E": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_-KKfHX56OTY": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Qn1voplJI4I": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_B1KbolzpWD4": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_OEWtQLQ9czs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_hB-AAGcMsO4": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_Y0t4mUr5vFI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_fcRPECfjHjg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_TCM_eADif8A": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_IkHYli39Exg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_DVJDUAgPKR4": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_9csDczj86v8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_zhgGaIOJwBQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_FPe3TAKOT9Y": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tj-tp_XDCqE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Y2ZG9SrxNo8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3LiFEaPUiNQ": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_ka4nR0wqpuY": {
+          "relevance": 0,
+          "instructional": 0
+        },
+        "yt_jHw5FsWYgBY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_Xv-_c3WtY8M": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_ibp1HgWoBPA": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_sW5QGWCQgHY": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_tft9uUJFrkE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_VmRvzOniIdg": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_-0Zp_fL3jCo": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6ezSIJZt6io": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_ayV17R7gE8M": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_wCPvebDq2yw": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xLpbXcIwQpk": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__6WERjVqBwE": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_UqiLaQXY5tY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_duf4Ra5-0pE": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_pgxmPoVyj80": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_A9ejBOhq-I8": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aZw_u60v_5U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_rcPVDigl1_c": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_XE_NjAF7Le0": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_xX2ejPGswBM": {
+          "relevance": 0,
+          "instructional": 1
+        },
+        "yt_6HwBIB5S55U": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_HMc3ZGNmF3o": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_7BPU0F4da5w": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EBEr2g2-DSk": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_aGydCvIJKNw": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_souKz302luU": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_L7N8U7emCVU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_l2o-GgFyLBg": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt__Xk3XIyYsO8": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_qnRsO7uTFRc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_QqXWu5O3uyI": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_hSFEv6kbC0c": {
+          "relevance": 2,
+          "instructional": 2
+        },
+        "yt_BG50BcFctyc": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_JKd8h7fJMvQ": {
+          "relevance": 3,
+          "instructional": 3
+        },
+        "yt_NGlX-1jhYJE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_u5vWFfZ6Csc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_BVyxC68kHdc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_cTP6Bm4MXZU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_3fkP88FDgaI": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_y6KjkIbz9OY": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_1OLI4qiHh9Q": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P39ksl_9EFc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_P2VDMq1mF24": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_CYizyqEfk1s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_SKOOSv-9pYQ": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_M-s835Zq1nM": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_XyaMyzLkOlA": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_gybAlzzE_lU": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_E1xsO_hd43s": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_YuQW_HSXcBI": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_raEnFm0sdnc": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_37F9l3Q1HzE": {
+          "relevance": 0,
+          "instructional": 2
+        },
+        "yt_EyBcps1e38o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_9ZXP2mIgK_o": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_q4wtHuEj-eA": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_6lswAFsS6qs": {
+          "relevance": 0,
+          "instructional": 3
+        },
+        "yt_Wkds7WSy0po": {
+          "relevance": 0,
+          "instructional": 3
+        }
+      }
+    }
+  ]
+}

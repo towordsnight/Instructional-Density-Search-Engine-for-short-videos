@@ -38,13 +38,39 @@ python search.py "how to cook steak"
 ```
 python app.py
 ```
-Open `http://localhost:5000` in your browser. Search results show thumbnails, platform badges, density scores, and link to the original videos.
+Open `http://localhost:5001` in your browser. Search results show thumbnails, platform badges, density scores, and link to the original videos.
 
-### 7. Run tests
+### 7. Run evaluation
+```
+python evaluation/evaluate.py
+```
+This compares 3 ranking strategies against ground-truth relevance labels:
+- **Similarity only** — pure cosine similarity (no density weighting)
+- **View-count** — sort by popularity (view count descending)
+- **Our system** — similarity × density^intent × topical boost
+
+The evaluation uses **pooled evaluation** (only the 86 labeled videos are counted in metrics) with **dual labels** (relevance 0-3 and instructional quality 0-3) across 15 test queries.
+
+**Metrics computed:** Precision@5, Recall@5, F1@5, nDCG@10, MRR, MAP, AvgDensity@5, AvgInstructional@5
+
+**Key results:**
+| Metric | Similarity Only | Our System | Interpretation |
+|---|---|---|---|
+| nDCG@10 | 0.871 | 0.850 | Minimal relevance cost (-2.4%) |
+| MRR | 0.933 | 0.933 | First relevant result at same position |
+| AvgDens@5 | 0.746 | 0.811 | +8.7% more instructional content surfaced |
+| AvgInstr@5 | 2.573 | 2.640 | Higher human-rated instructional quality |
+
+Our system trades a small relevance cost for meaningful gains in instructional density, confirming that the density-weighted ranking successfully surfaces more educational content.
+
+You can also access evaluation results via the API at `http://localhost:5001/api/evaluate`.
+
+### 8. Run tests
 ```
 python -m pytest data_collection/test_phase1.py -v    # 40 tests — data collection
 python -m pytest text_processing/test_phase2.py -v    # 39 tests — text processing
 python -m pytest test_phase3.py -v                     # 30 tests — scoring & search
 python -m pytest test_phase4.py -v                     # 15 tests — web UI
+python -m pytest evaluation/test_evaluation.py -v      # 40 tests — evaluation metrics & ground truth
 ```
 

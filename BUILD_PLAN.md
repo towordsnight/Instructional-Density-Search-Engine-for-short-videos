@@ -19,7 +19,7 @@
 | Text processing | **Done + Tested** | `text_processing/` — 9-step cleaning pipeline, 39/39 tests passing |
 | Real dataset | **Done (252 videos)** | `dataset/shorts_data.json` — 252 YouTube Shorts with full metadata and transcripts |
 | Web UI | **Done + Tested** | `app.py` + `templates/index.html` — Flask backend + single-page frontend, 15/15 tests |
-| Evaluation framework | **Not started** | No systematic metrics (precision, recall, nDCG) |
+| Evaluation framework | **Done + Tested** | `evaluation/` — 3 baselines, 8 metrics, 86 labeled videos, 15 queries, 40 tests |
 
 ---
 
@@ -189,20 +189,36 @@
 ## Phase 5: Evaluation
 
 ### Task 5.1 — Evaluation Framework
-- **File:** `evaluation/evaluate.py`
-- **Status:** [ ] Not started
-- Define ground truth: for 10-15 test queries, manually label which videos are "relevant + instructional"
-- Compute metrics: Precision@K, nDCG@10, Mean Reciprocal Rank (MRR)
-- Compare rankings: our system vs. a baseline (pure cosine similarity without density scoring)
-- Generate evaluation report table
+- **File:** `evaluation/evaluate.py`, `evaluation/metrics.py`
+- **Status:** [x] Done
+- Ground truth: 86 labeled videos across 18 categories, 15 test queries
+- Dual labels: each video gets both `relevance` (0-3) and `instructional` (0-3) grades per query
+- Pooled evaluation: only videos with ground-truth labels are considered in metrics, preventing unfair penalization from unlabeled videos
+- 8 metrics: Precision@5, Recall@5, F1@5, nDCG@10, MRR, MAP, AvgDensity@5, AvgInstructional@5
+- `evaluation/test_evaluation.py` — 40 unit tests covering all metrics, helpers, and ground truth validation
 
 ### Task 5.2 — A/B Baseline Comparison
-- **File:** `evaluation/compare_baselines.py`
-- **Status:** [ ] Not started
-- Baseline 1: cosine similarity only (no density)
-- Baseline 2: view-count ranking (engagement-based)
-- Our system: similarity x density x topical boost
-- Show that our system surfaces instructional content better
+- **File:** `evaluation/evaluate.py`
+- **Status:** [x] Done
+- **Baseline 1 (Similarity only):** pure cosine similarity, no density weighting or topical boost
+- **Baseline 2 (View-count):** sort by view count descending (engagement-based popularity)
+- **Our system:** similarity × density^intent × topical_boost
+- Results show our system improves instructional density (+8.7%) and instructional quality (+0.067) with minimal relevance cost (-0.022 nDCG@10)
+
+### Evaluation Results Summary
+
+| Metric | Similarity Only | View-count | Our System |
+|---|---|---|---|
+| P@5 | 0.587 | 0.227 | 0.547 |
+| R@5 | 0.230 | 0.088 | 0.218 |
+| F1@5 | 0.300 | 0.116 | 0.282 |
+| nDCG@10 | 0.871 | 0.395 | 0.850 |
+| MRR | 0.933 | 0.511 | 0.933 |
+| MAP | 0.553 | 0.179 | 0.536 |
+| AvgDens@5 | 0.746 | 0.525 | 0.811 |
+| AvgInstr@5 | 2.573 | 1.453 | 2.640 |
+
+**Verdict:** Our system trades a small relevance cost (-0.022 nDCG@10) for meaningful gains in instructional density (+8.7%) and instructional quality (+0.067). The density-weighted ranking successfully surfaces more educational content without significantly hurting topical relevance. MRR is tied at 0.933, meaning the first relevant result appears at the same position. Both systems vastly outperform the view-count baseline across all metrics.
 
 ---
 
@@ -248,7 +264,7 @@ model/
 | 3 | Re-run indexing on real dataset | **Done** — embeddings rebuilt (252 × 384) |
 | 4 | Web UI (Flask app + HTML) | **Done** — with thumbnails |
 | 5 | Grow dataset to 100+ videos | **Done** — 252 videos across 27 queries |
-| 6 | Evaluation framework | **Next** — see checklist Step 2 |
+| 6 | Evaluation framework | **Done** — 3 baselines, 8 metrics, 86×15 ground truth |
 | 7 | Fix query expansion & improve UX | Next — see checklist Steps 3-5 |
 
 ---
@@ -802,14 +818,13 @@ Optimization tasks organized by priority. We will work through these step by ste
   - Added transcript caching for fast re-runs
   - Added 18 real TikTok/Instagram URLs (music-only, no usable transcripts)
 
-- [ ] **Step 2: Evaluation framework (Phase 5)**
-  - Build a ground-truth set: for 10-15 test queries, manually label which videos are "relevant + instructional"
-  - Implement `evaluation/evaluate.py` with Precision@K, nDCG@10, and Mean Reciprocal Rank (MRR)
-  - Implement `evaluation/compare_baselines.py` to compare our system against:
-    - Baseline 1: pure cosine similarity (no density scoring)
-    - Baseline 2: view-count ranking (engagement-based)
-  - Prove that our ranking formula (similarity x density x topical boost) outperforms both baselines
-  - This is critical for the course report
+- [x] **Step 2: Evaluation framework (Phase 5)**
+  - Built ground-truth set: 86 labeled videos × 15 queries with dual labels (relevance + instructional quality)
+  - Implemented `evaluation/metrics.py` with P@K, R@K, F1@K, nDCG@10, MRR, MAP, AvgDensity@5, AvgInstructional@5
+  - Implemented `evaluation/evaluate.py` comparing 3 baselines: similarity-only, view-count, our system
+  - Pooled evaluation ensures fair comparison (only labeled videos counted)
+  - Results: our system gains +8.7% instructional density with only -0.022 nDCG@10 cost
+  - 40 unit tests passing in `evaluation/test_evaluation.py`
 
 - [ ] **Step 3: Fix query expansion false matches**
   - Current problem: "design" expands to "aesthetic, style, architecture", causing DIY content to match Tiffany queries

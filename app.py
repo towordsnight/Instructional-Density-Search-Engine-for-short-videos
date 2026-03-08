@@ -5,14 +5,18 @@ Serves a single-page interface for searching indexed short-form videos.
 """
 
 import json
+import os
 
 import numpy as np
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory
 
 from create_embeddings import load_model
 from search import search
+from evaluation.evaluate import run_evaluation
 
-app = Flask(__name__)
+FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend", "dist")
+
+app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path="")
 
 # Module globals — populated on startup
 model = None
@@ -33,8 +37,8 @@ def _load_data():
 
 @app.route("/")
 def index():
-    """Serve the search page."""
-    return render_template("index.html")
+    """Serve the React frontend."""
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
 
 @app.route("/api/search")
@@ -51,6 +55,15 @@ def api_search():
         top_k=k, min_density=min_density,
     )
     return jsonify(results)
+
+
+@app.route("/api/evaluate")
+def api_evaluate():
+    """Run evaluation against ground-truth baselines. GET /api/evaluate"""
+    result = run_evaluation(model, embeddings, density_scores, metadata)
+    # Remove all_results (large, redundant with per_query)
+    result.pop("all_results", None)
+    return jsonify(result)
 
 
 @app.route("/api/stats")
@@ -70,4 +83,4 @@ def api_stats():
 
 if __name__ == "__main__":
     _load_data()
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
